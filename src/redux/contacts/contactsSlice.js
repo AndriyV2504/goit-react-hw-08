@@ -1,5 +1,5 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
-import { fetchContacts } from "../contactsOps";
+import { createSlice } from "@reduxjs/toolkit";
+import { deleteContact, fetchContacts } from "../contactsOps";
 
 const initialState = {
   items: [],
@@ -10,35 +10,34 @@ const initialState = {
 const contactsSlice = createSlice({
   name: "contacts",
   initialState,
-  reducers: {
-    addContact: {
-      reducer(state, action) {
-        state.items.push(action.payload);
-      },
-      prepare({ name, number }) {
-        return {
-          payload: {
-            id: nanoid(),
-            name,
-            number,
-          },
-        };
-      },
-    },
-    deleteContact(state, action) {
-      state.items = state.items.filter(
-        (contact) => contact.id !== action.payload
-      );
-    },
-  },
   extraReducers: (builder) => {
-    builder.addCase(fetchContacts.fulfilled, (state, action) => {
-      state.loading = false;
-      state.items = action.payload;
-    });
+    builder
+      .addCase(fetchContacts.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchContacts.fulfilled, (state, action) => {
+        state.loading = false;
+        state.items = action.payload;
+      })
+      .addCase(fetchContacts.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(deleteContact.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(deleteContact.fulfilled, (state, action) => {
+        state.loading = false;
+        state.items = state.items.filter(
+          (contact) => contact.id !== action.payload
+        );
+      })
+      .addCase(deleteContact.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
   },
 });
 
-export const { addContact, deleteContact } = contactsSlice.actions;
 export const selectContacts = (state) => state.contacts.items;
 export default contactsSlice.reducer;
