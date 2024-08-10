@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import ContactForm from "./ContactForm/ContactForm";
+import ContactList from "./ContactList/ContactList";
+import SearchBox from "./SearchBox/SearchBox";
 
 const App = () => {
   useEffect(() => {
@@ -10,6 +12,8 @@ const App = () => {
     <div>
       <h1>PHONEBOOK</h1>
       <ContactForm />
+      <SearchBox />
+      <ContactList />
     </div>
   );
 };
