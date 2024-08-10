@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { deleteContact } from "../../redux/contacts/contactsSlice";
 
 const Contact = ({ data: { id, name, number } }) => {
   const dispatch = useDispatch();
@@ -7,7 +8,7 @@ const Contact = ({ data: { id, name, number } }) => {
       <p>
         {name}: {number}
       </p>
-      <button onClick={() => dispatch()}>Delete</button>
+      <button onClick={() => dispatch(deleteContact(id))}>Delete</button>
     </div>
   );
 };
