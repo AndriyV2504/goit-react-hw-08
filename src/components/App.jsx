@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import ContactForm from "./ContactForm/ContactForm";
 
 const App = () => {
   useEffect(() => {
@@ -8,6 +9,7 @@ const App = () => {
   return (
     <div>
       <h1>PHONEBOOK</h1>
+      <ContactForm />
     </div>
   );
 };
