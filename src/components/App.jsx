@@ -26,13 +26,6 @@ const App = () => {
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       <ContactList />
-
-      {/* <h1 className={styles.header}>PHONEBOOK📋</h1>
-      <ContactForm />
-      <SearchBox />
-      {loading && <p className={styles.loading}>Loading...</p>}
-      {error && <p className={styles.error}>{error}</p>}
-      <ContactList /> */}
     </div>
   );
 };

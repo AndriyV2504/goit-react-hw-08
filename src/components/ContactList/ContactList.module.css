@@ -9,11 +9,9 @@
     border-radius: 8px;
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgba(20, 2, 138, 0.1);
-    /* Тінь для ефекту підйому */
     transition: box-shadow 0.3s ease;
 }
 
 .contactListItem:hover {
     box-shadow: 0 8px 16px rgba(15, 3, 85, 0.2);
-    /* Тінь при наведенні курсору */
 }
