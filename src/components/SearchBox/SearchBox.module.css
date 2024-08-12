@@ -1,0 +1,35 @@
+.searchBox {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Тінь для ефекту підйому */
+}
+
+.searchBox p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* Включає padding і border в загальну ширину */
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    /* Плавний перехід для border-color та box-shadow */
+}
+
+.searchInput:focus {
+    border-color: #0906c5;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+    /* Тінь для фокусу */
+    outline: none;
+    /* Прибирає стандартний outline при фокусі */
+}

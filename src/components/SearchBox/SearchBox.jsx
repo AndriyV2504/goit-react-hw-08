@@ -3,6 +3,7 @@ import {
   changeFilter,
   selectNameFilter,
 } from "../../redux/contacts/filtersSlice";
+import styles from "./SearchBox.module.css";
 
 const SearchBox = () => {
   const dispatch = useDispatch();
@@ -13,13 +14,14 @@ const SearchBox = () => {
   };
 
   return (
-    <div>
+    <div className={styles.searchBox}>
       <p>Find contacts by name</p>
       <input
+        className={styles.searchInput}
         type="text"
         value={filter}
         onChange={handleSearch}
-        placeholder="Search contacts..."
+        placeholder="Search Contacts..."
       />
     </div>
   );

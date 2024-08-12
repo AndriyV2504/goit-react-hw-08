@@ -1,0 +1,26 @@
+.container {
+    font-family: Arial, sans-serif;
+    color: rgb(2, 12, 113);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #0505eb;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.header h1:hover {
+    color: #45a049;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}

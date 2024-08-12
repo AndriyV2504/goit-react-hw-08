@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { addContact } from "../../redux/contactsOps";
+import styles from "./ContactForm.module.css";
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -10,22 +11,32 @@ const ContactForm = () => {
   };
 
   return (
-    <div>
+    <div className={styles.formContainer}>
       <Formik initialValues={{ name: "", number: "" }} onSubmit={handleSubmit}>
         <Form>
-          <label>
+          <label className={styles.label}>
             <span>Name</span>
-            <Field name="name" />
+            <Field
+              className={styles.input}
+              name="name"
+              placeholder="Name Contact"
+            />
             <ErrorMessage name="name" component="div" />
           </label>
 
-          <label>
+          <label className={styles.label}>
             <span>Number</span>
-            <Field name="number" />
+            <Field
+              className={styles.input}
+              name="number"
+              placeholder="Number Contact"
+            />
             <ErrorMessage name="number" component="div" />
           </label>
 
-          <button type="submit">Add Contact</button>
+          <button className={styles.submitButton} type="submit">
+            Add Contact
+          </button>
         </Form>
       </Formik>
     </div>

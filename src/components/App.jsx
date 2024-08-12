@@ -5,6 +5,7 @@ import SearchBox from "./SearchBox/SearchBox";
 import { useDispatch, useSelector } from "react-redux";
 import { selectError, selectLoading } from "../redux/contacts/contactsSlice";
 import { fetchContacts } from "../redux/contactsOps";
+import styles from "./App/App.module.css";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -16,13 +17,22 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <h1>PHONEBOOK</h1>
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <h1>PHONEBOOK📋</h1>
+      </header>
       <ContactForm />
       <SearchBox />
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       <ContactList />
+
+      {/* <h1 className={styles.header}>PHONEBOOK📋</h1>
+      <ContactForm />
+      <SearchBox />
+      {loading && <p className={styles.loading}>Loading...</p>}
+      {error && <p className={styles.error}>{error}</p>}
+      <ContactList /> */}
     </div>
   );
 };
