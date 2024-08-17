@@ -35,12 +35,12 @@ const App = () => {
       <ContactList /> */}
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegistrationPage />} />
+          <Route index element={<HomePage />} />
           <Route path="/contacts" element={<ContactsPage />} />
-          <Route path="*" element={<NotFound />} />
         </Route>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegistrationPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
