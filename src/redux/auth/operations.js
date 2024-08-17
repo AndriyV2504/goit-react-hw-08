@@ -12,3 +12,12 @@ export const register = createAsyncThunk(
     }
   }
 );
+
+export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
+  try {
+    const response = await goItApi.post("/users/login", user);
+    return response.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
