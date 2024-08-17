@@ -9,7 +9,6 @@ const buildLinkClass = ({ isActive }) => {
 const Navigation = () => {
   return (
     <header className={styles.header}>
-      <div>Navigation</div>
       <nav>
         <ul className={styles.nav}>
           <li>

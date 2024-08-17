@@ -1,15 +1,22 @@
 import { Field, Form, Formik } from "formik";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { login } from "../../redux/auth/operations";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import UserMenu from "../../components/UserMenu/UserMenu";
 
 const LoginPage = () => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(login(values));
     resetForm();
   };
+
+  if (isLoggedIn) {
+    return <UserMenu />;
+  }
 
   return (
     <div>

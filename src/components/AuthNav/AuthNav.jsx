@@ -9,7 +9,6 @@ const buildLinkClass = ({ isActive }) => {
 const AuthNav = () => {
   return (
     <header className={styles.header}>
-      <div>AuthNav</div>
       <nav>
         <ul className={styles.nav}>
           <li>
