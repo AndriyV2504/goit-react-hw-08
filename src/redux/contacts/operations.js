@@ -1,12 +1,24 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { goItApi } from "../../config/goItApi.js";
+import { selectToken } from "../auth/selectors.js";
 
 export const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
   async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const token = selectToken(state);
+
+    if (!token) {
+      return thunkAPI.rejectWithValue("No token found");
+    }
+
     try {
-      const response = await goItApi.get("/contacts");
-      return response.data.contacts;
+      const response = await goItApi.get("/contacts", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
