@@ -1,9 +1,5 @@
 import { useEffect } from "react";
-import ContactForm from "../ContactForm/ContactForm";
-import ContactList from "../ContactList/ContactList";
-import SearchBox from "../SearchBox/SearchBox";
-import { useDispatch, useSelector } from "react-redux";
-import { selectError, selectLoading } from "../../redux/contacts/contactsSlice";
+import { useDispatch } from "react-redux";
 import { fetchContacts } from "../../redux/contactsOps";
 import styles from "./App.module.css";
 import { Route, Routes } from "react-router-dom";
@@ -16,8 +12,6 @@ import NotFound from "../../pages/NotFound/NotFound";
 
 const App = () => {
   const dispatch = useDispatch();
-  const loading = useSelector(selectLoading);
-  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -28,11 +22,7 @@ const App = () => {
       <header className={styles.header}>
         <h1>PHONEBOOK📋</h1>
       </header>
-      {/* <ContactForm />
-      <SearchBox />
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      <ContactList /> */}
+
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
