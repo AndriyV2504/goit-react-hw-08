@@ -10,6 +10,7 @@ import ContactsPage from "../../pages/ContactsPage/ContactsPage";
 import NotFound from "../../pages/NotFound/NotFound";
 import { refreshUser } from "../../redux/auth/operations";
 import PrivateRoute from "../PrivateRoute";
+import RestrictedRoute from "../RestrictedRoute";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -36,8 +37,22 @@ const App = () => {
             }
           />
         </Route>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegistrationPage />} />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute>
+              <LoginPage />
+            </RestrictedRoute>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute>
+              <RegistrationPage />
+            </RestrictedRoute>
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
