@@ -8,8 +8,8 @@ import LoginPage from "../../pages/LoginPage/LoginPage ";
 import RegistrationPage from "../../pages/RegistrationPage/RegistrationPage";
 import ContactsPage from "../../pages/ContactsPage/ContactsPage";
 import NotFound from "../../pages/NotFound/NotFound";
-import { fetchContacts } from "../../redux/contacts/operations";
 import { refreshUser } from "../../redux/auth/operations";
+import PrivateRoute from "../../PrivateRoute";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -27,7 +27,14 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="/contacts" element={<ContactsPage />} />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute>
+                <ContactsPage />
+              </PrivateRoute>
+            }
+          />
         </Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
