@@ -9,7 +9,7 @@ import RegistrationPage from "../../pages/RegistrationPage/RegistrationPage";
 import ContactsPage from "../../pages/ContactsPage/ContactsPage";
 import NotFound from "../../pages/NotFound/NotFound";
 import { refreshUser } from "../../redux/auth/operations";
-import PrivateRoute from "../../PrivateRoute";
+import PrivateRoute from "../PrivateRoute";
 
 const App = () => {
   const dispatch = useDispatch();
