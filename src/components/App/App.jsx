@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./App.module.css";
 import { Route, Routes } from "react-router-dom";
 import Layout from "../Layout";
@@ -11,15 +11,17 @@ import NotFound from "../../pages/NotFound/NotFound";
 import { refreshUser } from "../../redux/auth/operations";
 import PrivateRoute from "../PrivateRoute";
 import RestrictedRoute from "../RestrictedRoute";
+import { selectIsRefreshing } from "../../redux/auth/selectors";
 
 const App = () => {
   const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
+  return isRefreshing ? null : (
     <div className={styles.container}>
       <header className={styles.header}>
         <h1>PHONEBOOK📋</h1>
