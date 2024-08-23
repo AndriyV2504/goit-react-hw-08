@@ -3,7 +3,7 @@ import { goItApi } from "../../config/goItApi.js";
 import { selectToken } from "../auth/selectors.js";
 
 export const fetchContacts = createAsyncThunk(
-  "contacts/fetchAll",
+  "contacts/fetchContacts",
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const token = selectToken(state);
