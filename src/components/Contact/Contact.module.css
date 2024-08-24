@@ -1,24 +1,63 @@
 .contact {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border: 1px solid #070bf4;
-    border-radius: 4px;
+    justify-content: space-between;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #b5aff3;
-}
-
-.button {
-    background-color: #ff6347;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
     transition: background-color 0.3s ease;
 }
 
+.contact:hover {
+    background-color: #f0f0f0;
+}
+
+.input {
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 5px;
+}
+
+.button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 .button:hover {
-    background-color: #ff4500;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.editButton {
+    background-color: #28a745;
+    color: white;
+}
+
+.saveButton {
+    background-color: #007bff;
+    color: white;
+}
+
+.cancelButton {
+    background-color: #fb032c;
+    color: white;
+}
+
+.deleteButton {
+    background-color: #fb032c;
+    color: white;
 }
