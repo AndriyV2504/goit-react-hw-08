@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styles from "./AuthNav.module.css";
 import clsx from "clsx";
+import UserMenu from "../UserMenu/UserMenu";
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(styles.link, isActive && styles.active);
@@ -9,6 +10,7 @@ const buildLinkClass = ({ isActive }) => {
 const AuthNav = () => {
   return (
     <header className={styles.header}>
+      <UserMenu />
       <nav>
         <ul className={styles.nav}>
           <li>
