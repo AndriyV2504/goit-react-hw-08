@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import styles from "./Contact.module.css";
 import { deleteContact } from "../../redux/contacts/operations";
 import ConfirmModal from "../ConfirmModal/ConfirmModal";
+import toast from "react-hot-toast";
 
 const Contact = ({ data: { id, name, number } }) => {
   const dispatch = useDispatch();
@@ -17,9 +18,15 @@ const Contact = ({ data: { id, name, number } }) => {
 
   const handleConfirmDelete = () => {
     if (contactToDelete) {
-      dispatch(deleteContact(contactToDelete));
-      setContactToDelete(null);
-      setIsModalOpen(false);
+      dispatch(deleteContact(contactToDelete))
+        .then(() => {
+          toast.success("Contact deleted successfully!");
+          setContactToDelete(null);
+          setIsModalOpen(false);
+        })
+        .catch((error) => {
+          toast.error("Failed to delete contact. Please try again.");
+        });
     }
   };
 

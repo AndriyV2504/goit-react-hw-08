@@ -2,12 +2,20 @@ import { useDispatch } from "react-redux";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { addContact } from "../../redux/contacts/operations";
 import styles from "./ContactForm.module.css";
+import toast from "react-hot-toast";
 
 const ContactForm = () => {
   const dispatch = useDispatch();
+
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(addContact(values));
-    resetForm();
+    dispatch(addContact(values))
+      .then(() => {
+        toast.success("Contact added successfully!");
+        resetForm();
+      })
+      .catch((error) => {
+        toast.error("Failed to add contact. Please try again.");
+      });
   };
 
   return (
